@@ -22,30 +22,31 @@ var movies = [
 	}
 ];
 
+var test = {
+	title: 'Matrix'
+}
+
+var Movie = React.createClass({
+	propTypes: {
+		movies: React.PropTypes.array,
+	},
+	render: function(){
+		return movies.map(movie =>{
+			return console.log(movie.title)
+		})
+	},
+})
+
+React.createElement(Movie)
+
 var moviesElements = movies.map(movie => {
 	return React.createElement('li', {key: movie.id},
-			React.createElement('h2', {}, movie.title),
+			React.createElement('h2', {},),
 			React.createElement('p', {}, `The main star of the movie is: ${movie.star}`),
 			React.createElement('p', {}, movie.desc),
 			React.createElement('img', {src: movie.poster}, )
 	);
 });
-
-
-var Movie = React.createClass({
-	propTypes: {
-		moviesElements: React.PropTypes.array,
-	},
-	render: function(){
-		return(
-			React.createElement('div', {},
-				React.createElement('h1', {}, 'Lista filmów'),
-				React.createElement('ul', {}, moviesElements)
-			)
-		)	
-	},
-})
-
 
 
 var element = React.createElement(Movie)
