@@ -31,10 +31,24 @@ var moviesElements = movies.map(movie => {
 	);
 });
 
-var element =
-	React.createElement('div', {},
-		React.createElement('h1', {}, 'Lista filmów'),
-		React.createElement('ul', {}, moviesElements)
-	);
+
+var Movie = React.createClass({
+	propTypes: {
+		moviesElements: React.PropTypes.array,
+	},
+	render: function(){
+		return(
+			React.createElement('div', {},
+				React.createElement('h1', {}, 'Lista filmów'),
+				React.createElement('ul', {}, moviesElements)
+			)
+		)	
+	},
+})
+
+
+
+var element = React.createElement(Movie)
+	
 
 ReactDOM.render(element, document.getElementById('app'));
